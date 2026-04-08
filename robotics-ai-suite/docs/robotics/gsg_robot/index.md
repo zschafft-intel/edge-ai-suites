@@ -142,7 +142,7 @@ An alternative method for setup is to create a pre-configured OS image with ROS 
 
 OS Image Composer supports creating both ISO images (for installation via USB) and raw disk images (for direct deployment to storage devices or VMs). ISO images are suitable for interactive installations, while raw images can be directly written to storage media or VMs for immediate use. If you prefer to start with a base Ubuntu installation, without needing to reimage a system, use the [Express Setup](#express-setup) or the [Step-by-step Setup](#step-by-step-setup) guide.
 
-For detailed instructions, see the [os-image-composer installation guide](https://github.com/open-edge-platform/os-image-composer/blob/main/docs/tutorial/installation.md). An abbreviated iso image creation follows:
+For detailed instructions, see the [os-image-composer installation guide](https://github.com/open-edge-platform/os-image-composer/blob/main/docs/tutorial/installation.md). An abbreviated ISO image creation follows:
 
 1. Install Go (Go 1.24+ required) + build dependencies:
    ```bash
@@ -180,9 +180,9 @@ For detailed instructions, see the [os-image-composer installation guide](https:
    sudo dd if=builds/robotics-jazzy-ubuntu24-24.04.iso of=/dev/sdX bs=4M status=progress conv=fsync
    ```
 
-   Once complete, the USB Drive can be used to reimage a system to be ready for [AMR Tutorials](https://docs.openedgeplatform.intel.com/2026.0/edge-ai-suites/robotics-ai-suite/robotics/dev_guide/index_tutorials.html).
+8. Boot from the USB drive and install the image to your system.
 
-8. **Setup complete!** Next Steps: Explore the [Tutorials](../dev_guide/index_tutorials.rst) for ready-to-use applications and examples.
+9. **Setup complete!** Next Steps: Explore the [Tutorials](../dev_guide/index_tutorials.rst) for ready-to-use applications and examples.
 
 ## Step-by-step Setup
 
