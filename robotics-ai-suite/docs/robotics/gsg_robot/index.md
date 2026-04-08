@@ -134,7 +134,11 @@ export ROS_DOMAIN_ID=42
 
 ## OS Image Composer Setup
 
-An alternative method for setup is to create an OS image pre-configured with ROS 2 and the appropriate repositories. For detailed instructions, see the [os-image-composer installation guide](https://github.com/open-edge-platform/os-image-composer/blob/main/docs/tutorial/installation.md). An abbreviated version follows:
+An alternative method for setup is to create a pre-configured OS image with ROS 2 and the appropriate repositories using the OS Image Composer tool. This approach is similar to the Express Setup convenience script above, but instead of configuring an existing system, it creates a complete bootable OS image that can be deployed to multiple systems or used for fresh installations.
+
+OS Image Composer supports creating both ISO images (for installation via USB) and raw disk images (for direct deployment to storage devices or VMs). ISO images are suitable for interactive installations, while raw images can be directly written to storage media or VMs for immediate use.
+
+For detailed instructions, see the [os-image-composer installation guide](https://github.com/open-edge-platform/os-image-composer/blob/main/docs/tutorial/installation.md). An abbreviated iso image creation follows:
 
 ```bash
 # Install Go (Go 1.24+ required) + build dependencies
@@ -143,21 +147,30 @@ sudo apt update && sudo apt install golang-1.24 git systemd-ukify mmdebstrap
 # Update go path since 1.24 isn't default
 export PATH=$PATH:/usr/lib/go-1.24/bin
 source ~/.bashrc
+```
 
+```bash
 # Clone repo
 git clone https://github.com/open-edge-platform/os-image-composer.git
 cd os-image-composer
+```
 
+```bash
 # Build the tool (output: ./os-image-composer)
 go build -buildmode=pie -ldflags "-s -w" ./cmd/os-image-composer
 
 # Build the live-installer (required for ISO images)
 go build -buildmode=pie -o ./build/live-installer -ldflags "-s -w" ./cmd/live-installer
+```
 
+```bash
 # Build ISO image
 sudo -E ./os-image-composer build image-templates/ubuntu24-x86_64-robotics-jazzy-iso.yml
+```
 
-# Flash ISO Image to USB drive (modify /dev/sdX to proper USB drive location)
+Once image is successfully built, modify the below command to point to the built image location (shown after build). Change /dev/sdX to proper USB drive location i.e. /dev/sdb.
+```bash
+# Flash ISO Image to USB drive
 sudo dd if=builds/robotics-jazzy-ubuntu24-24.04.iso of=/dev/sdX bs=4M status=progress conv=fsync
 ```
 
