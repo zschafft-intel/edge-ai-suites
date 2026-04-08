@@ -136,7 +136,7 @@ export ROS_DOMAIN_ID=42
 
 An alternative method for setup is to create a pre-configured OS image with ROS 2 and the appropriate repositories using the OS Image Composer tool. This approach is similar to the Express Setup convenience script above, but instead of configuring an existing system, it creates a complete bootable OS image that can be deployed to multiple systems or used for fresh installations.
 
-OS Image Composer supports creating both ISO images (for installation via USB) and raw disk images (for direct deployment to storage devices or VMs). ISO images are suitable for interactive installations, while raw images can be directly written to storage media or VMs for immediate use.
+OS Image Composer supports creating both ISO images (for installation via USB) and raw disk images (for direct deployment to storage devices or VMs). ISO images are suitable for interactive installations, while raw images can be directly written to storage media or VMs for immediate use. If you prefer to start with a base Ubuntu installation, without needing to reimage a system, use the [Express Setup](#express-setup) or the [Step-by-step Setup](#step-by-step-setup) guide.
 
 For detailed instructions, see the [os-image-composer installation guide](https://github.com/open-edge-platform/os-image-composer/blob/main/docs/tutorial/installation.md). An abbreviated iso image creation follows:
 
